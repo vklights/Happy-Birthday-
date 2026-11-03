@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Birthday Girl ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg,#ffc1d9,#ffe6f0,#e8c5ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255,255,255,0.85);
+    padding: 30px 20px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 430px;
+    box-shadow: 0 10px 35px #d66a9c55;
+}
+
+h1 {
+    color: #ff4081;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #9b4770;
+    font-size: 17px;
+    margin: 15px 0;
+}
+
+button {
+    background: #ff4f91;
+    color: white;
+    border: none;
+    padding: 13px 23px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e91e63;
+    transform: scale(1.08);
+}
+
+.option {
+    display: block;
+    width: 100%;
+    background: #ffb6d1;
+    color: #8e2855;
+    font-weight: bold;
+}
+
+.option:hover {
+    background: #ff80ab;
+}
+
+.hidden {
+    display: none;
+}
+
+.emoji {
+    font-size: 55px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {transform: translateY(0);}
+    to {transform: translateY(-12px);}
+}
+
+.balloon {
+    position: fixed;
+    bottom: -100px;
+    font-size: 35px;
+    animation: fly 7s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fly {
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+#answer {
+    color: #ff4081;
+    font-weight: bold;
+    margin: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- WELCOME PAGE -->
+<div id="welcome">
+    <div class="emoji">🎂🎈</div>
+    <h1>Happy Birthday My Girl ❤️</h1>
+    <p>Hey Birthday Princess! 👑</p>
+    <p>Aaj tumhara special day hai...
+    Toh tumhare liye ek chhota sa surprise hai! 🥹💗</p>
+    <p>Ready ho? Lekin cheating allowed nahi hai! 😂</p>
+    <button onclick="startQuiz()">Let's Start 💌</button>
+</div>
+
+<!-- QUESTION 1 -->
+<div id="q1" class="hidden">
+    <div class="emoji">😂</div>
+    <h1>Question 1</h1>
+    <p>Agar tumhe ek din ke liye queen bana diya jaaye, toh sabse pehle kya karogi? 👑</p>
+
+    <button class="option" onclick="check(1,'A')">A. Sabko apna servant banaungi 😂</button>
+    <button class="option" onclick="check(1,'B')">B. Shopping karungi 🛍️</button>
+    <button class="option" onclick="check(1,'C')">C. Bas soti rahungi 😴</button>
+</div>
+
+<!-- QUESTION 2 -->
+<div id="q2" class="hidden">
+    <div class="emoji">🤣</div>
+    <h1>Question 2</h1>
+    <p>Agar cake ke saamne tum aur tumhari bestie ho, toh cake kisko milega? 🎂</p>
+
+    <button class="option" onclick="check(2,'A')">A. Mujhe hi milega 😎</button>
+    <button class="option" onclick="check(2,'B')">B. Bestie ko thoda sa 🤏</button>
+    <button class="option" onclick="check(2,'C')">C. Cake kisi ko nahi, sab mera! 😂</button>
+</div>
+
+<!-- QUESTION 3 -->
+<div id="q3" class="hidden">
+    <div class="emoji">🥹</div>
+    <h1>Last Question!</h1>
+    <p>Birthday girl, tumhe pata hai na tum kitni special ho? 💗</p>
+
+    <button class="option" onclick="check(3,'A')">A. Haan, obviously! 😌</button>
+    <button class="option" onclick="check(3,'B')">B. Thodi si 🥰</button>
+    <button class="option" onclick="check(3,'C')">C. Abhi batao! 👀</button>
+</div>
+
+<div id="answer"></div>
+
+<!-- FINAL SURPRISE -->
+<div id="final" class="hidden">
+    <div class="emoji">🎉💖🎂</div>
+    <h1>Happy Birthday My Girl! ❤️</h1>
+
+    <p>Finally madam, tumne quiz complete kar liya! 😂</p>
+
+    <p>May your life be full of happiness, laughter,
+    endless love and beautiful memories. 🥹</p>
+
+    <p>Hamesha aise hi pagal, cute aur smiling rehna! 💕</p>
+
+    <h1>Love Youuu! 🫶🏻</h1>
+    <p>Once again, Happy Birthday Princess! 👑</p>
+
+    <button onclick="location.reload()">Play Again 🔄</button>
+</div>
+
+</div>
+
+<script>
+function startQuiz() {
+    document.getElementById("welcome").classList.add("hidden");
+    document.getElementById("q1").classList.remove("hidden");
+}
+
+function check(question, option) {
+
+    let messages = {
+        1: "Hahaha! Queen toh tum pehle se ho! 😂👑",
+        2: "Cake ke liye itna pyaar! 😂🎂",
+        3: "Obviously! Tum bahut special ho! ❤️"
+    };
+
+    document.getElementById("answer").innerText =
+        messages[question];
+
+    setTimeout(() => {
+        document.getElementById("q" + question).classList.add("hidden");
+        document.getElementById("answer").innerText = "";
+
+        if(question < 3) {
+            document.getElementById("q" + (question + 1))
+            .classList.remove("hidden");
+        } else {
+            document.getElementById("final").classList.remove("hidden");
+        }
+    }, 1400);
+}
+
+// Floating balloons
+setInterval(() => {
+    let balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.innerHTML = ["🎈","💗","🎀","✨"][Math.floor(Math.random()*4)];
+    balloon.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(balloon);
+
+    setTimeout(() => balloon.remove(),7000);
+}, 700);
+</script>
+
+</body>
+</html>
